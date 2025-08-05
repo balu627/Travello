@@ -1,29 +1,157 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Register</title>
+  {% load static %}
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      font-family: 'Segoe UI', sans-serif;
+      overflow: hidden;
+    }
+
+    body {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+
+    .background-slider {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      z-index: -2;
+      overflow: hidden;
+    }
+
+    .background-slider::before {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.45); /* dark overlay */
+      z-index: 1;
+    }
+
+    .background-slider img {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0;
+      transition: opacity 1s ease-in-out;
+      z-index: 0;
+      filter: brightness(70%);
+    }
+
+    .background-slider img.active {
+      opacity: 1;
+    }
+
+    form {
+      background-color: white;
+      padding: 40px;
+      border-radius: 12px;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+      display: flex;
+      flex-direction: column;
+      width: 350px;
+      gap: 15px;
+      z-index: 10;
+    }
+
+    h1 {
+      text-align: center;
+      color: #007bff;
+      margin-bottom: 10px;
+    }
+
+    input {
+      padding: 10px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      background-color: #f3f7ff;
+      font-size: 14px;
+    }
+
+    button {
+      padding: 12px;
+      background-color: #007bff;
+      color: white;
+      font-weight: bold;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    button:hover {
+      background-color: #0056b3;
+    }
+    .login-link {
+  text-align: center;
+  margin-top: 10px;
+  text-decoration: none;
+  font-size: 14px;
+  color: #007bff;
+  font-weight: 500;
+}
+
+.login-link:hover {
+  text-decoration: underline;
+  color: #0056b3;
+}
+
+  </style>
 </head>
 <body>
-    <h1>Register Page</h1>
-    <form method="post" action="register">
-        {% csrf_token %}
 
-        <input type="text" id="firstname" name="firstname" placeholder="First Name" required><br>
+  <!-- Image Slider Background -->
+  <div class="background-slider">
+    <img src="https://plus.unsplash.com/premium_photo-1664300792059-863ccfe55932?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" class="active" />
+    <img src="https://images.unsplash.com/photo-1440581572325-0bea30075d9d?q=80&w=774&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" />
+    <img src="https://images.unsplash.com/photo-1451337516015-6b6e9a44a8a3?q=80&w=774&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" />
+    <img src="https://images.unsplash.com/photo-1471922694854-ff1b63b20054?q=80&w=872&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" />
+  </div>
 
-        <input type="text" id="lastname" name="lastname" placeholder="Last Name" required><br>
+  <!-- Register Form -->
+  <form method="post" action="register">
+    <h1>Register</h1>
+    {% csrf_token %}
+    <input type="text" id="firstname" name="firstname" placeholder="First Name" required>
+    <input type="text" id="lastname" name="lastname" placeholder="Last Name" required>
+    <input type="text" id="username" name="username" placeholder="User Name" required>
+    <input type="email" id="email" name="email" placeholder="Email" required>
+    <input type="password" id="password1" name="password1" placeholder="Password" required>
+    <input type="password" id="password2" name="password2" placeholder="Confirm Password" required>
+    <!-- Add this inside your <form> after the Register button -->
+    <button type="submit">Register</button>
 
-        <input type="text" id="username" name="username" placeholder="User Name" required ><br>
-        
-        <label for="email">Email:</label>
-        <input type="email" id="email" name="email" placeholder="Email" required><br>
-        
-        <label for="password">Password:</label>
-        <input type="password" id="password1" name="password1" placeholder="Password" required><br>
-        <input type="password" id="password2" name="password2" placeholder="Confirm Password" required><br>
-        
-        <button type="submit">Register</button>
-    </form>
+    <a href="login" class="login-link">Already have an account? Login</a>
+
+  </form>
+
+  <!-- JS for sliding images -->
+  <script>
+    const images = document.querySelectorAll('.background-slider img');
+    let current = 0;
+
+    setInterval(() => {
+      images[current].classList.remove('active');
+      current = (current + 1) % images.length;
+      images[current].classList.add('active');
+    }, 10000);
+  </script>
 </body>
 </html>

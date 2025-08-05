@@ -1,9 +1,10 @@
 {% load static %}
 {% static "images" as baseUrl %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>Travello</title>
+<title>News</title>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="description" content="Travello template project">
@@ -13,25 +14,12 @@
 <link rel="stylesheet" type="text/css" href="{% static 'plugins/OwlCarousel2-2.2.1/owl.carousel.css' %}">
 <link rel="stylesheet" type="text/css" href="{% static 'plugins/OwlCarousel2-2.2.1/owl.theme.default.css' %}">
 <link rel="stylesheet" type="text/css" href="{% static 'plugins/OwlCarousel2-2.2.1/animate.css' %}">
-<link rel="stylesheet" type="text/css" href="{% static 'styles/main_styles.css' %}">
-<link rel="stylesheet" type="text/css" href="{% static 'styles/responsive.css' %}">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=logout" />
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=logout" />
+<link rel="stylesheet" type="text/css" href="{% static 'styles/news.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'styles/news_responsive.css' %}">
 </head>
-<style>
-.material-symbols-outlined {
-  font-variation-settings:
-  'FILL' 0,
-  'wght' 400,
-  'GRAD' 0,
-  'opsz' 24;
-}
-
-</style>
 <body>
-
 <div class="super_container">
-
+	
 	<!-- Header -->
 
 	<header class="header">
@@ -58,7 +46,7 @@
 									</ul>
 								</nav>
 								{% else %}
-								<div class="phone_num"><h4 style="display: inline;">Hi, {{ user.first_name }}  {{user.last_name }}</h4> <a href="accounts/logout"><span class="material-symbols-outlined">
+								<div class="phone_num"><h4 style="display: inline;">Hi, {{ user.first_name }}  {{user.last_name }}</h4> <a href="logout"><span class="material-symbols-outlined">
 logout
 </span></a></div>
 								 {% endif %}
@@ -96,10 +84,11 @@ logout
 		</div>
 		<div class="menu_content">
 			<ul>
-				<li><a href="index.html">Home</a></li>
+				<li><a href="inex.html">Home</a></li>
 				<li><a href="about.html">About us</a></li>
+				<li><a href="#">Services</a></li>
+				<li><a href="news.html">News</a></li>
 				<li><a href="contact.html">Contact</a></li>
-				<li><a href="register.html">Register</a></li>
 			</ul>
 		</div>
 		<div class="menu_social">
@@ -114,74 +103,12 @@ logout
 			</ul>
 		</div>
 	</div>
-
+	
 	<!-- Home -->
 
 	<div class="home">
-
-		<!-- Home Slider -->
-		<div class="home_slider_container">
-			<div class="owl-carousel owl-theme home_slider">
-
-				<!-- Slide -->
-				<div class="owl-item">
-					<div class="background_image" style="background-image:url({% static 'images/home_slider.jpg' %})"></div>
-					<div class="home_slider_content_container">
-						<div class="container">
-							<div class="row">
-								<div class="col">
-									<div class="home_slider_content">
-										<div class="home_title"><h2>Let us take you away</h2></div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-
-				<!-- Slide -->
-				<div class="owl-item">
-					<div class="background_image" style="background-image:url({% static 'images/home_slider.jpg' %})"></div>
-					<div class="home_slider_content_container">
-						<div class="container">
-							<div class="row">
-								<div class="col">
-									<div class="home_slider_content">
-										<div class="home_title"><h2>Let us take you away</h2></div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-
-				<!-- Slide -->
-				<div class="owl-item">
-					<div class="background_image" style="background-image:url({% static 'images/home_slider.jpg' %})"></div>
-					<div class="home_slider_content_container">
-						<div class="container">
-							<div class="row">
-								<div class="col">
-									<div class="home_slider_content">
-										<div class="home_title"><h2>Let us take you awa</h2></div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-
-			</div>
-
-			<div class="home_page_nav">
-				<ul class="d-flex flex-column align-items-end justify-content-end">
-					<li><a href="#" data-scroll-to="#destinations">Offers<span>01</span></a></li>
-					<li><a href="#" data-scroll-to="#testimonials">Testimonials<span>02</span></a></li>
-					<li><a href="#" data-scroll-to="#news">Latest<span>03</span></a></li>
-				</ul>
-			</div>
-		</div>
-	</div>
+		<div class="background_image" style="background-image:url({% static 'images/news.jpg' %})"></div>
+	</div>		
 
 	<!-- Search -->
 
@@ -208,169 +135,19 @@ logout
 		</div>
 	</div>
 
-	<!-- Intro -->
-
-	<div class="intro">
-		<div class="intro_background" style="background-image:url({% static 'images/intro.png' %})"></div>
-		<div class="container">
-			<div class="row">
-				<div class="col">
-					<div class="intro_container">
-						<div class="row">
-
-							<!-- Intro Item -->
-							<div class="col-lg-4 intro_col">
-								<div class="intro_item d-flex flex-row align-items-end justify-content-start">
-									<div class="intro_icon"><img src="{% static 'images/beach.svg' %}" alt=""></div>
-									<div class="intro_content">
-										<div class="intro_title">Top Destinations</div>
-										<div class="intro_subtitle"><p>Nulla pretium tincidunt felis, nec.</p></div>
-									</div>
-								</div>
-							</div>
-
-							<!-- Intro Item -->
-							<div class="col-lg-4 intro_col">
-								<div class="intro_item d-flex flex-row align-items-end justify-content-start">
-									<div class="intro_icon"><img src="{% static 'images/wallet.svg' %}" alt=""></div>
-									<div class="intro_content">
-										<div class="intro_title">The Best Prices</div>
-										<div class="intro_subtitle"><p>Sollicitudin mauris lobortis in.</p></div>
-									</div>
-								</div>
-							</div>
-
-							<!-- Intro Item -->
-							<div class="col-lg-4 intro_col">
-								<div class="intro_item d-flex flex-row align-items-end justify-content-start">
-									<div class="intro_icon"><img src="{% static 'images/suitcase.svg' %}" alt=""></div>
-									<div class="intro_content">
-										<div class="intro_title">Amazing Services</div>
-										<div class="intro_subtitle"><p>Nulla pretium tincidunt felis, nec.</p></div>
-									</div>
-								</div>
-							</div>
-
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-
-	<!-- Destinations -->
-
-	<div class="destinations" id="destinations">
-		<div class="container">
-			<div class="row">
-				<div class="col text-center">
-					<div class="section_subtitle">simply amazing places</div>
-					<div class="section_title"><h2>Popular Destinations</h2></div>
-				</div>
-			</div>
-			<div class="row destinations_row">
-				<div class="col">
-					<div class="destinations_container item_grid">
-
-						<!-- Destination -->
-						 {% for dest in destinations %}
-						<div class="destination item">
-							<div class="destination_image">
-								<img src="{{dest.img.url}}" alt="">
-								{% if dest.offer %}
-								<div class="spec_offer text-center"><a href="#"> Special Offer </a></div>
-								{% endif %}
-							</div>
-							<div class="destination_content">
-								<div class="destination_title"><a href="destinations.html">{{dest.name}}</a></div>
-								<div class="destination_subtitle"><p>{{dest.desc}}</p></div>
-								<div class="destination_price">From ${{dest.price}}</div>
-							</div>
-						</div>
-						{% endfor %}
-
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-
-	<!-- Testimonials -->
-
-	<div class="testimonials" id="testimonials">
-		<div class="parallax_background parallax-window" data-parallax="scroll" data-image-src="{% static 'images/testimonials.jpg' %}" data-speed="0.8"></div>
-		<div class="container">
-			<div class="row">
-				<div class="col text-center">
-					<div class="section_subtitle">simply amazing places</div>
-					<div class="section_title"><h2>Testimonials</h2></div>
-				</div>
-			</div>
-			<div class="row testimonials_row">
-				<div class="col">
-
-					<!-- Testimonials Slider -->
-					<div class="testimonials_slider_container">
-						<div class="owl-carousel owl-theme testimonials_slider">
-
-							<!-- Slide -->
-							<div class="owl-item text-center">
-								<div class="testimonial">Lorem ipsum dolor sit amet, consectetur adipiscing elit. lobortis dolor. Cras placerat lectus a posuere aliquet. Curabitur quis vehicula odio.</div>
-								<div class="testimonial_author">
-									<div class="testimonial_author_content d-flex flex-row align-items-end justify-content-start">
-										<div>john turner,</div>
-										<div>client</div>
-									</div>
-								</div>
-							</div>
-
-							<!-- Slide -->
-							<div class="owl-item text-center">
-								<div class="testimonial">Lorem ipsum dolor sit amet, consectetur adipiscing elit. lobortis dolor. Cras placerat lectus a posuere aliquet. Curabitur quis vehicula odio.</div>
-								<div class="testimonial_author">
-									<div class="testimonial_author_content d-flex flex-row align-items-end justify-content-start">
-										<div>john turner,</div>
-										<div>client</div>
-									</div>
-								</div>
-							</div>
-
-							<!-- Slide -->
-							<div class="owl-item text-center">
-								<div class="testimonial">Lorem ipsum dolor sit amet, consectetur adipiscing elit. lobortis dolor. Cras placerat lectus a posuere aliquet. Curabitur quis vehicula odio.</div>
-								<div class="testimonial_author">
-									<div class="testimonial_author_content d-flex flex-row align-items-end justify-content-start">
-										<div>john turner,</div>
-										<div>client</div>
-									</div>
-								</div>
-							</div>
-
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-		<div class="test_nav">
-			<ul class="d-flex flex-column align-items-end justify-content-end">
-				<li><a href="#">City Breaks Clients<span>01</span></a></li>
-				<li><a href="#">Cruises Clients<span>02</span></a></li>
-				<li><a href="#">All Inclusive Clients<span>03</span></a></li>
-			</ul>
-		</div>
-	</div>
-
 	<!-- News -->
 
-	<div class="news" id="news">
+	<div class="news">
 		<div class="container">
 			<div class="row">
-				<div class="col-xl-8">
-					<div class="news_container">
 
+				<!-- News Container -->
+				<div class="col-lg-8">
+					<div class="news_container">
+						
 						<!-- News Post -->
-						<div class="news_post d-flex flex-md-row flex-column align-items-start justify-content-start">
-							<div class="news_post_image"><img src="{% static 'images/news_1.jpg' %}" alt=""></div>
+						<div class="news_post">
+							<div class="news_post_image"><img src="{% static 'images/news_4.jpg' %}" alt=""></div>
 							<div class="news_post_content">
 								<div class="news_post_date d-flex flex-row align-items-end justify-content-start">
 									<div>02</div>
@@ -383,72 +160,150 @@ logout
 									</ul>
 								</div>
 								<div class="news_post_text">
-									<p>Pellentesque sit amet elementum ccumsan sit amet mattis eget, tristique at leo. Vivamus massa.Tempor massa et laoreet.</p>
+									<p>Pellentesque sit amet elementum ccumsan sit amet mattis eget, tristique at leo. Vivamus massa.Tempor massa et laoreet. Pellentesque sit amet elementum ccumsan sit amet mattis eget, tristique at leo. Vivamus massa.Tempor massa et laoreet.</p>
 								</div>
+								<div class="news_post_link"><a href="#">Read More</a></div>
 							</div>
 						</div>
 
 						<!-- News Post -->
-						<div class="news_post d-flex flex-md-row flex-column align-items-start justify-content-start">
-							<div class="news_post_image"><img src="{% static 'images/news_2.jpg' %}" alt=""></div>
+						<div class="news_post">
+							<div class="news_post_image"><img src="{% static 'images/news_5.jpg' %}" alt=""></div>
 							<div class="news_post_content">
 								<div class="news_post_date d-flex flex-row align-items-end justify-content-start">
-									<div>01</div>
+									<div>02</div>
 									<div>june</div>
 								</div>
-								<div class="news_post_title"><a href="#">Best tips to travel light</a></div>
+								<div class="news_post_title"><a href="#">10 Amazing Destination for you this summer</a></div>
 								<div class="news_post_category">
 									<ul>
 										<li><a href="#">lifestyle & travel</a></li>
 									</ul>
 								</div>
 								<div class="news_post_text">
-									<p>Tempor massa et laoreet malesuada. Pellentesque sit amet elementum ccumsan sit amet mattis eget, tristique at leo.</p>
+									<p>Pellentesque sit amet elementum ccumsan sit amet mattis eget, tristique at leo. Vivamus massa.Tempor massa et laoreet. Pellentesque sit amet elementum ccumsan sit amet mattis eget, tristique at leo. Vivamus massa.Tempor massa et laoreet.</p>
 								</div>
+								<div class="news_post_link"><a href="#">Read More</a></div>
 							</div>
 						</div>
 
 						<!-- News Post -->
-						<div class="news_post d-flex flex-md-row flex-column align-items-start justify-content-start">
-							<div class="news_post_image"><img src="{% static 'images/news_3.jpg' %}" alt=""></div>
+						<div class="news_post">
+							<div class="news_post_image"><img src="{% static 'images/news_6.jpg' %}" alt=""></div>
 							<div class="news_post_content">
 								<div class="news_post_date d-flex flex-row align-items-end justify-content-start">
-									<div>29</div>
-									<div>may</div>
+									<div>02</div>
+									<div>june</div>
 								</div>
-								<div class="news_post_title"><a href="#">Best tips to travel light</a></div>
+								<div class="news_post_title"><a href="#">How to organize your perfect vacation</a></div>
 								<div class="news_post_category">
 									<ul>
 										<li><a href="#">lifestyle & travel</a></li>
 									</ul>
 								</div>
 								<div class="news_post_text">
-									<p>Vivamus massa.Tempor massa et laoreet malesuada. Aliquam nulla nisl, accumsan sit amet mattis.</p>
+									<p>Pellentesque sit amet elementum ccumsan sit amet mattis eget, tristique at leo. Vivamus massa.Tempor massa et laoreet. Pellentesque sit amet elementum ccumsan sit amet mattis eget, tristique at leo. Vivamus massa.Tempor massa et laoreet.</p>
 								</div>
+								<div class="news_post_link"><a href="#">Read More</a></div>
 							</div>
 						</div>
 
 					</div>
+
+					<!-- Pagination -->
+					<div class="pagination">
+						<ul class="d-flex flex-row align-items-start justify-content-start">
+							<li class="active"><a href="#">1.</a></li>
+							<li><a href="#">2.</a></li>
+							<li><a href="#">3.</a></li>
+							<li><a href="#">4.</a></li>
+							<li><a href="#">5.</a></li>
+						</ul>
+					</div>
 				</div>
 
 				<!-- News Sidebar -->
-				<div class="col-xl-4">
-					<div class="travello">
-						<div class="background_image" style="background-image:url({% static 'images/travello.jpg' %})"></div>
-						<div class="travello_content">
-							<div class="travello_content_inner">
-								<div></div>
-								<div></div>
+				<div class="col-lg-4">
+					<div class="news_sidebar">
+
+						<!-- Categories -->
+						<div class="categories">
+							<div class="sidebar_title">Categories</div>
+							<div class="sidebar_list">
+								<ul>
+									<li><a href="#"><div class="d-flex flex-row align-items-start justify-content-start">Travels<span class="ml-auto">(09)</span></div></a></li>
+									<li><a href="#"><div class="d-flex flex-row align-items-start justify-content-start">Organization<span class="ml-auto">(12)</span></div></a></li>
+									<li><a href="#"><div class="d-flex flex-row align-items-start justify-content-start">Tips & Tricks<span class="ml-auto">(16)</span></div></a></li>
+									<li><a href="#"><div class="d-flex flex-row align-items-start justify-content-start">Uncategorized<span class="ml-auto">(22)</span></div></a></li>
+								</ul>
 							</div>
 						</div>
-						<div class="travello_container">
-							<a href="#">
-								<div class="d-flex flex-column align-items-center justify-content-end">
-									<span class="travello_title">Get a 20% Discount</span>
-									<span class="travello_subtitle">Buy Your Vacation Online Now</span>
+
+						<!-- Latest News -->
+						<div class="latest">
+							<div class="sidebar_title">Latest News</div>
+							<div class="latest_container">
+								
+								<!-- Latest Post -->
+								<div class="latest_post d-flex flex-row align-items-start justify-content-start">
+									<div class="latest_post_image"><img src="{% static 'images/latest_1.jpg' %}	" alt=""></div>
+									<div class="latest_post_content">
+										<div class="latest_post_date d-flex flex-row align-items-end justify-content-start">
+											<div class="latest_post_day">02</div>
+											<div class="latest_post_month">june</div>
+										</div>
+										<div class="latest_post_title"><a href="#">Best tips to travel light</a></div>
+										<div class="latest_post_text"><p>Pellentesque sit amet..</p></div>
+									</div>
 								</div>
-							</a>
+
+								<!-- Latest Post -->
+								<div class="latest_post d-flex flex-row align-items-start justify-content-start">
+									<div class="latest_post_image"><img src="{% static 'images/latest_2.jpg' %}" alt=""></div>
+									<div class="latest_post_content">
+										<div class="latest_post_date d-flex flex-row align-items-end justify-content-start">
+											<div class="latest_post_day">02</div>
+											<div class="latest_post_month">june</div>
+										</div>
+										<div class="latest_post_title"><a href="#">Best tips to travel light</a></div>
+										<div class="latest_post_text"><p>Pellentesque sit amet..</p></div>
+									</div>
+								</div>
+
+								<!-- Latest Post -->
+								<div class="latest_post d-flex flex-row align-items-start justify-content-start">
+									<div class="latest_post_image"><img src="{% static 'images/latest_3.jpg' %}" alt=""></div>
+									<div class="latest_post_content">
+										<div class="latest_post_date d-flex flex-row align-items-end justify-content-start">
+											<div class="latest_post_day">02</div>
+											<div class="latest_post_month">june</div>
+										</div>
+										<div class="latest_post_title"><a href="#">Best tips to travel light</a></div>
+										<div class="latest_post_text"><p>Pellentesque sit amet..</p></div>
+									</div>
+								</div>
+
+							</div>
 						</div>
+
+						<div class="travello">
+							<div class="background_image" style="background-image:url({% static 'images/travello.jpg' %})"></div>
+							<div class="travello_content">
+								<div class="travello_content_inner">
+									<div></div>
+									<div></div>
+								</div>
+							</div>
+							<div class="travello_container">
+								<a href="#">
+									<div class="d-flex flex-column align-items-center justify-content-end">
+										<span class="travello_title">Get a 20% Discount</span>
+										<span class="travello_subtitle">Buy Your Vacation Online Now</span>
+									</div>
+								</a>
+							</div>
+						</div>
+						
 					</div>
 				</div>
 			</div>
@@ -538,10 +393,8 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 <script src="{% static 'styles/bootstrap4/popper.js' %}"></script>
 <script src="{% static 'styles/bootstrap4/bootstrap.min.js' %}"></script>
 <script src="{% static 'plugins/OwlCarousel2-2.2.1/owl.carousel.js' %}"></script>
-<script src="{% static 'plugins/Isotope/isotope.pkgd.min.js' %}"></script>
-<script src="{% static 'plugins/scrollTo/jquery.scrollTo.min.js' %}"></script>
 <script src="{% static 'plugins/easing/easing.js' %}"></script>
 <script src="{% static 'plugins/parallax-js-master/parallax.min.js' %}"></script>
-<script src="{% static 'js/custom.js' %}"></script>
+<script src="{% static 'js/news.js' %}"></script>
 </body>
 </html>

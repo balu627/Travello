@@ -3,6 +3,23 @@ from django.contrib import messages
 from django.shortcuts import redirect, render
 from django.contrib.auth.models import User, auth
 
+def news(request):
+    if request.user.is_authenticated:       
+        return render(request, "news.html")
+    else:
+        return login(request)
+
+def contact(request):
+    if request.user.is_authenticated:
+        return render(request, "contact.html")
+    else:
+        return login(request)
+
+def about(request):
+    if request.user.is_authenticated:
+        return render(request, "about.html")
+    else:
+        return login(request)
 
 def login(request):
     if request.method=="POST":
@@ -46,3 +63,7 @@ def register(request):
             return redirect('register')
     else:
         return render(request, 'register.html')
+
+def logout(request):
+    auth.logout(request)
+    return redirect('/')
