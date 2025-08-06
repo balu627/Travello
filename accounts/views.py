@@ -3,6 +3,12 @@ from django.contrib import messages
 from django.shortcuts import redirect, render
 from django.contrib.auth.models import User, auth
 
+def destinations(request):
+    if request.user.is_authenticated:
+        return render(request, "destinations.html")
+    else:
+        return login(request)
+
 def news(request):
     if request.user.is_authenticated:       
         return render(request, "news.html")
